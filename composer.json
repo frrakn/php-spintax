@@ -1,0 +1,19 @@
+{
+	"name": "frrakn/php-spintax",
+	"description": "spintax generator",
+	"license": "MIT",
+	"keywords": [
+	    "spintax",
+	    "PHP"
+	],
+	"authors": [
+		{
+			"name": "frrakn"
+		}
+	,
+	"autoload": {
+		"classmap": [
+		    "src/"
+		]
+	}
+}
