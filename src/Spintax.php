@@ -119,6 +119,3 @@ function spin_expr_arr($exprs) {
 
 		return $output;
 }
-
-$test = new Spintax("{hell{o, wo| }}{rld}");
-print $test->spin();
