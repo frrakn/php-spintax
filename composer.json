@@ -10,7 +10,7 @@
         {
             "name": "frrakn"
         }
-    ,
+    ],
     "autoload": {
         "classmap": [
             "src/"
