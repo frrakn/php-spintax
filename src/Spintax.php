@@ -4,6 +4,7 @@ namespace Spintax;
 
 class Spintax {
 	public $spintaxExpr;
+	private $count;
 
 	public function __construct( $expr ) {
 		$this->spintaxExpr = $this->compile( $expr );
@@ -11,6 +12,14 @@ class Spintax {
 
 	public function spin() {
 		return spin_expr_arr($this->spintaxExpr);
+	}
+
+	public function getCount() {
+		if ($this->count == null) {
+			return getCount($this->spintaxExpr);
+		} else {
+			return $this->count;
+		}
 	}
 
 	private function compile( $expr ) {
@@ -103,6 +112,14 @@ class Spinner {
 
 		return spin_expr_arr($res);
 	}
+
+	public function getCount() {
+		$count = 0;
+		foreach($this->options as $option) {
+			$count = $count + getCount($option);
+		}
+		return $count;
+	}
 }
 
 function spin_expr_arr($exprs) {
@@ -116,4 +133,15 @@ function spin_expr_arr($exprs) {
 		}
 
 		return $output;
+}
+
+function getCount($exprs) {
+	$count = 1;
+	foreach($exprs as $expr) {
+		if ($expr instanceof Spinner) {
+			$count = $count * $expr->getCount();
+		}
+	}
+
+	return $count;
 }
