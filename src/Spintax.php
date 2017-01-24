@@ -2,8 +2,6 @@
 
 namespace Spintax;
 
-mt_srand(time());
-
 class Spintax {
 	public $spintaxExpr;
 
